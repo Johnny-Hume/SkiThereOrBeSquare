@@ -17,15 +17,21 @@ class WebProxy:
         self.driver.get(url)
 
     def click_ok_button(self):
-        button = self.driver.find_element_by_id("eventlist-ok-button")
-        button.click()
+        self.click_button("eventlist-ok-button")
+    
+    def click_book_place_button(self):
+        self.click_button("bookpackage-go-book")
 
+    def click_button(self, button_id):
+        button = self.driver.find_element_by_id(button_id)
+        button.click()
+    
     def select_qubs_dropdown_option(self):
         select = self.get_select_dropdown_options()
         self.find_qubs_index(select)
 
     def find_qubs_index(self, select):
-        self.find_option(select, "CUS")
+        self.find_option(select, "DOVE")
 
     def find_option(self, select, choice):
         for option in select.options:
@@ -40,3 +46,14 @@ class WebProxy:
         if len(select.options) < 2:
             self.get_select_dropdown_options()
         return select
+    
+    def refresh_page(self):
+        self.driver.refresh()
+    
+    def click_book_place_or_refresh(self):
+        try:
+            self.click_book_place_button()
+        except Exception:
+            self.refresh_page()
+            time.sleep(0.2)
+            self.click_book_place_or_refresh()
