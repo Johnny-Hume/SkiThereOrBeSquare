@@ -1,5 +1,5 @@
 from WebProxy import WebProxy
-from constants import initial_access_url, booking_url, account_email, account_password
+from constants import booking_url, account_email, account_password
 
 
 def go_skiing(webProxy):
