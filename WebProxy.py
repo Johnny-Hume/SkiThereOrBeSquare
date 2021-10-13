@@ -22,10 +22,10 @@ class WebProxy:
     def click_button(self, button_id):
         button = self.driver.find_element_by_id(button_id)
         button.click()
-    
+
     def refresh_page(self):
         self.driver.refresh()
-    
+
     def click_book_place_or_refresh(self):
         try:
             self.click_book_place_button()
