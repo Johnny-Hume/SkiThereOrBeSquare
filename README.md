@@ -1,6 +1,6 @@
 # SkiThereOrBeSquare
 
-Clone repo
+Clone repo\n
 Navigate into cloned repo using powershell/terminal
 python -m venv venv
 .\venv\Scripts\activate
