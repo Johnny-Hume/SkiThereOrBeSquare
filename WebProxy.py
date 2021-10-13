@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.support import wait
 from constants import login_url
 from selenium.webdriver.support.ui import Select
 import time
@@ -56,11 +55,12 @@ class WebProxy:
     
     def refresh_page(self):
         self.driver.refresh()
-    
+
     def click_book_place_or_refresh(self):
         try:
             self.click_book_place_button()
         except Exception:
+            print("Button not found, refreshing")
             self.refresh_page()
             time.sleep(0.2)
             self.click_book_place_or_refresh()
