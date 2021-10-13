@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support import wait
+from constants import login_url
 from selenium.webdriver.support.ui import Select
 import time
 
@@ -16,6 +17,12 @@ class WebProxy:
     def get_webpage(self, url):
         self.driver.get(url)
 
+    def login(self, username, password):
+        self.get_webpage(login_url)
+        self.driver.find_element_by_id("auth_login_password-datum-email").send_keys(username)
+        self.driver.find_element_by_id("auth_login_password-datum-password").send_keys(password)
+        self.driver.find_element_by_id("auth_login_password_submit").click()
+
     def click_ok_button(self):
         self.click_button("eventlist-ok-button")
     
@@ -31,7 +38,7 @@ class WebProxy:
         self.find_qubs_index(select)
 
     def find_qubs_index(self, select):
-        self.find_option(select, "DOVE")
+        self.find_option(select, "Queen University Belfast Snowsports")
 
     def find_option(self, select, choice):
         for option in select.options:
