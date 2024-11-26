@@ -1,5 +1,6 @@
 # SkiThereOrBeSquare
 
+A script created for friends to get onto the University Ski trip which sells out in <1 minute every year.
 Clone repo  
 Navigate into cloned repo using powershell/terminal  
 python -m venv venv  
